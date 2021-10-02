@@ -54,15 +54,25 @@ public class MainActivity extends AppCompatActivity {
             }
 
             @Override
-            public void onStartTrackingTouch(SeekBar seekBar) {
-
-            }
-
-            @Override
             public void onStopTrackingTouch(SeekBar seekBar) {
 
             }
         });
+         // Paint image onto JWindow
+   public void paint(Graphics g) {
+      super.paint(g);
+      g.drawImage(splashScreen, 0, 0, this);
+   }
+   public static void main(String[]args) {
+      CreateSplashScreen splash = new CreateSplashScreen();
+      try {
+         // Make JWindow appear for 10 seconds before disappear
+         Thread.sleep(10000);
+         splash.dispose();
+      } catch(Exception e) {
+         e.printStackTrace();
+      }
+   }
         button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
